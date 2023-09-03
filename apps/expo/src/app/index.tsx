@@ -1,14 +1,14 @@
-import React from "react";
-import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Link, Stack } from "expo-router";
-import { FlashList } from "@shopify/flash-list";
+import React from 'react';
+import { Button, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Link, Stack } from 'expo-router';
+import { FlashList } from '@shopify/flash-list';
 
-import { api } from "~/utils/api";
-import type { RouterOutputs } from "~/utils/api";
+import { api } from '~/utils/api';
+import type { RouterOutputs } from '~/utils/api';
 
 function PostCard(props: {
-  post: RouterOutputs["post"]["all"][number];
+  post: RouterOutputs['post']['all'][number];
   onDelete: () => void;
 }) {
   return (
@@ -17,7 +17,7 @@ function PostCard(props: {
         <Link
           asChild
           href={{
-            pathname: "/post/[id]",
+            pathname: '/post/[id]',
             params: { id: props.post.id },
           }}
         >
@@ -39,13 +39,13 @@ function PostCard(props: {
 function CreatePost() {
   const utils = api.useContext();
 
-  const [title, setTitle] = React.useState("");
-  const [content, setContent] = React.useState("");
+  const [title, setTitle] = React.useState('');
+  const [content, setContent] = React.useState('');
 
   const { mutate, error } = api.post.create.useMutation({
     async onSuccess() {
-      setTitle("");
-      setContent("");
+      setTitle('');
+      setContent('');
       await utils.post.all.invalidate();
     },
   });
@@ -103,7 +103,7 @@ const Index = () => {
   return (
     <SafeAreaView className="bg-[#1F104A]">
       {/* Changes page title visible on the header */}
-      <Stack.Screen options={{ title: "Home Page" }} />
+      <Stack.Screen options={{ title: 'Home Page' }} />
       <View className="h-full w-full p-4">
         <Text className="mx-auto pb-2 text-5xl font-bold text-white">
           Create <Text className="text-pink-400">T3</Text> Turbo
@@ -112,7 +112,7 @@ const Index = () => {
         <Button
           onPress={() => void utils.post.all.invalidate()}
           title="Refresh posts"
-          color={"#f472b6"}
+          color={'#f472b6'}
         />
 
         <View className="py-2">

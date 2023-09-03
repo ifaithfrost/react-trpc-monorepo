@@ -1,12 +1,12 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps } from 'react';
 
-import type { OAuthProviders } from "@acme/auth";
-import { CSRF_experimental } from "@acme/auth";
+import type { OAuthProviders } from '@packages/auth';
+import { CSRF_experimental } from '@packages/auth';
 
 export function SignIn({
   provider,
   ...props
-}: { provider: OAuthProviders } & ComponentProps<"button">) {
+}: { provider: OAuthProviders } & ComponentProps<'button'>) {
   return (
     <form action={`/api/auth/signin/${provider}`} method="post">
       <button {...props} />
@@ -15,7 +15,7 @@ export function SignIn({
   );
 }
 
-export function SignOut(props: ComponentProps<"button">) {
+export function SignOut(props: ComponentProps<'button'>) {
   return (
     <form action="/api/auth/signout" method="post">
       <button {...props} />

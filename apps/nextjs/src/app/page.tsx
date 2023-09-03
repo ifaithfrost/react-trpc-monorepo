@@ -1,13 +1,13 @@
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
-import { AuthShowcase } from "./_components/auth-showcase";
+import { AuthShowcase } from './_components/auth-showcase';
 import {
   CreatePostForm,
   PostCardSkeleton,
   PostList,
-} from "./_components/posts";
+} from './_components/posts';
 
-export const runtime = "edge";
+export const runtime = 'edge';
 
 export default function HomePage() {
   return (
